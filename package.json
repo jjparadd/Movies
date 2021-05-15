@@ -6,7 +6,21 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+
+    "test:ui:coverage": "ng test --watch=false --code-coverage",
+    
+    "start:server": "mvn spring-boot:run",
+    "build:server": "mvn package",
+    "build:ui:prod": "ng build --configuration production",
+    "build:server:prod": "",
+    "docker:build:ui": "docker build . -f ui.Dockerfiledoc -t ui:latest",
+    "docker:build:server": "docker build . -f server.Dockerfile -t server:latest",
+    "docker:run:ui": "docker run -it -p 8080:80 ui:latest",
+    "docker:run:server": "docker run -it -p 8081:8000 server:latest "
+
+    
+
   },
   "private": true,
   "dependencies": {
